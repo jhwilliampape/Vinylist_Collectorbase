@@ -29,8 +29,8 @@ import clsx from 'clsx';
 import { RouteComponentProps, withRouter, Switch, Route, Link } from "react-router-dom";
 import { AuthCheck } from 'reactfire';
 
-import { SearchForm } from '../../components';
-import * as TurnTable from '../../components/TurnTable';
+import { SearchForm, TurnTable } from '../../components';
+
 
 
 

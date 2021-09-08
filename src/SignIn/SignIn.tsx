@@ -43,11 +43,11 @@ const useStyles = makeStyles({
         fontSize: '2em'
     },
     containerStyle:{
-        margin-top: '2em', 
+    //     margin-top: '2em', 
     },
     snackBar:{
-        color: 'black',
-        backgroundColor: '4cbd20',
+    //     color: 'black',
+    //     backgroundColor: '4cbd20',
     },
 
 });
@@ -58,10 +58,11 @@ interface SignInProps{
     match: RouteComponentProps['match'];
 };
 
-export const SignIn = withRouter( ( props:SignInProps) => {
+export const SignIn = withRouter( ( props:SignInProps) => { //where to put the 'useSigninCheck'
     const auth = useAuth();
     const classes = useStyles();
-    const { history } = props
+    const { history } = props;
+    const [open, setOpen] = useState(false);
     const handleSnackOpen = () => {
         setOpen(true)
     };
@@ -102,7 +103,7 @@ export const SignIn = withRouter( ( props:SignInProps) => {
                 </form>
 
                 <AuthCheck fallback={
-                    <Button className={classes.googleButton} onClick={sign_in}>Sign In With Spotify</Button>
+                    <Button className={classes.googleButton} onClick={sign_in}>Sign In With Google</Button>
                 }>
                     <Button variant='contained' color='secondary' onClick={sign_out}>Sign Out</Button>
                 </AuthCheck>
@@ -116,4 +117,8 @@ export const SignIn = withRouter( ( props:SignInProps) => {
     )
 
 })
+
+function setOpen(arg0: boolean) {
+    throw new Error("Function not implemented.");
+}
 

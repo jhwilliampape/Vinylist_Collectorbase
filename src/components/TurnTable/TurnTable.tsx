@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     }
 })
 
-function TurnTable() {
+export const TurnTable = () =>  {
 
     const classes = useStyles()
 
@@ -66,4 +66,3 @@ function TurnTable() {
         </List>
     );
 }
-export default TurnTable;

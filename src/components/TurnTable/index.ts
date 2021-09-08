@@ -1,1 +1,1 @@
-export * from '../TurnTable';
+export * from './TurnTable';
