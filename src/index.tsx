@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
-import { FirebaseAppProvider, AuthCheck } from 'reactfire';
+import { FirebaseAppProvider, useSignInCheck } from 'reactfire';
 import 'firebase/auth';
 import { firebaseConfig } from './firebaseConfig';
 
@@ -23,13 +23,11 @@ ReactDOM.render(
     <Router>
       <Switch>
 
-        <Route path='/'>
-          <Home></Home>
+        <Route exact path='/'>
+          <Home title={'Home'}/>
         </Route>
 
-        <Route path='/inventory'>
-          <Inventory></Inventory>
-        </Route>
+        <Route path='/inventory' component={Inventory}/>
 
         
         {/* <Route path='/signin'>

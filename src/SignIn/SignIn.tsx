@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import firebase from 'firebase/app';
-import { useAuth, AuthCheck } from "reactfire";
+import { useAuth, useSignInCheck } from "reactfire";
 import 'firebase/auth';
 import { Input } from '../components/sharedComponents/Input';
 import { Container, Button, makeStyles, Typography, Snackbar } from "@material-ui/core";
@@ -43,14 +43,14 @@ const useStyles = makeStyles({
         fontSize: '2em'
     },
     containerStyle:{
-    //     margin-top: '2em', 
+        marginTop: '2em'
     },
     snackBar:{
-    //     color: 'black',
-    //     backgroundColor: '4cbd20',
-    },
+        color: 'black',
+        backgroundColor: '#4caf50'
+    }
 
-});
+})
 
 interface SignInProps{
     history: RouteComponentProps['history'];
@@ -87,26 +87,14 @@ export const SignIn = withRouter( ( props:SignInProps) => { //where to put the '
     }
 
     return (
-        <div>
-            <Container maxWidth = 'sm' className={classes.containerStyle}>
-                <Typography className={classes.typographyStyle}>Sign In Here</Typography>
-                <form>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <Input name="email" placeholder='Email Here' />
-                </div>
-                <div>
-                    <label htmlFor="password">password</label>
-                    <Input name="password" placeholder='Password Here' />
-                </div>
-                <Button type='submit' variant='contained' color='secondary'>Submit</Button>
-                </form>
+        <div id='SignIn'>
+            <Container className={classes.containerStyle}>                
 
-                <AuthCheck fallback={
+                <useSignInCheck fallback={
                     <Button className={classes.googleButton} onClick={sign_in}>Sign In With Google</Button>
                 }>
                     <Button variant='contained' color='secondary' onClick={sign_out}>Sign Out</Button>
-                </AuthCheck>
+                </useSignInCheck>
                 <Snackbar message={'Success'} open={open} autoHideDuration={5000} onClose={handleSnackClose}>
                 <Alert onClose={handleSnackClose} severity="success">
                     Successfull Sign In - Redirect in 5 seconds
@@ -117,8 +105,3 @@ export const SignIn = withRouter( ( props:SignInProps) => { //where to put the '
     )
 
 })
-
-function setOpen(arg0: boolean) {
-    throw new Error("Function not implemented.");
-}
-

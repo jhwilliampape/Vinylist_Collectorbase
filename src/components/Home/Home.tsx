@@ -27,7 +27,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import clsx from 'clsx';
 import { RouteComponentProps, withRouter, Switch, Route, Link } from "react-router-dom";
-import { AuthCheck } from 'reactfire';
+import { useSignInCheck } from 'reactfire';
 
 import { SearchForm, TurnTable } from '../../components';
 

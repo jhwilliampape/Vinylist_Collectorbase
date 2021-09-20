@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-let token = 'BQDqPwTzE9l808T_5xIYu6KuXgE5QzRsyEfQrYHsWQXY1VWL6HSHkv2F7VQ6WOVSRUYeTB9woZBm4gmknKvY5Dbop-aFOSqRsZMJ3bMyUnl045hsh8YuE9oXwSgFQSCMCf4Z5S4aIZHsDZwQb8c'
+let token = 'BQBZGkJevhJsEh74_RDPyXzixxx1m4x-vS0y0fImtJhd9kJxcwFE4eR67zpX7ltIL6AtLZiJdzJshxz6N7ZMkInAyNvOJxpqRU6xXMs_y8SRwJ4TIyxlwPrKuSvfQkULNtWUtyINE6mG-i4NHi4'
 
 export const server_calls = {
     get: async () => {
-        const response = await fetch (`https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album&market=ES&limit=10&offset=5`, {
+        const response = await fetch (`https://api.spotify.com/v1/search?query=name:aeiouxzy&type=album&limit=50`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -12,7 +12,7 @@ export const server_calls = {
                 'Authorization': `Bearer ${token}`
             }
         });
-
+        console.log(response.json())
         if (!response.ok){
             throw new Error('Oops! No Vinyl Here.')
         }
@@ -20,7 +20,7 @@ export const server_calls = {
     },
 
     delete: async(id:string) => {
-        const response = await fetch (`https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album&market=ES&limit=10&offset=5`, {
+        const response = await fetch (`https://api.spotify.com/v1/search?query=name:aeiouxzy&type=album&limit=50`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

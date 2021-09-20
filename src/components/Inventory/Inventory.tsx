@@ -25,9 +25,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import clsx from 'clsx';
-import { RouteComponentProps, withRouter, Switch, Route } from "react-router-dom";
+import { RouteComponentProps, withRouter, Switch, Route, Link } from "react-router-dom";
 
 import { DataTable, SearchForm } from '../../components';
+
+import SpotifyWebApi from 'spotify-web-api-node';
 
 const drawerWidth = 200;
 
@@ -132,18 +134,18 @@ export const Inventory = withRouter(( props:DashProps ) => {
         setDialogOpen(true);
     }
 
-    const handleDialogClickClose = () => {
+    const handleDialogClickClose = () => { 
         setDialogOpen(false);
     }
 
     const itemList = [
         {
             text: 'Home',
-            onClick: () => history.push('/')
+            onClick: () => <Link to="/">Home</Link>
         },
         {
             text: 'Log Out',
-            onClick: () => history.push('/logout')
+            onClick: () => <Link to='/logout'>Log Out</Link>
         }
     ]
     
